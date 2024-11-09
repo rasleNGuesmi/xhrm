@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <span class="me-auto p-2 title">{{ title | uppercase }}</span>
+
+  <select
+    class="form-select form-select-sm p-2 border-0 select-lang"
+    aria-label=".form-select-sm example"
+    (change)="changeLang($event)">
+    <option value="fr">Fr</option>
+
+    <option value="en">En</option>
+  </select>
+  <span class="p-2 username">{{ username }}</span>
+  <img [src]="avatar" class="rounded-circle p-2" alt="..." />
+</mat-toolbar>

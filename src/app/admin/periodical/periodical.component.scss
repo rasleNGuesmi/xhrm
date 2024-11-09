@@ -1,0 +1,13 @@
+@media (min-width: 576px) {
+  .filter-position {
+    display: flex;
+    justify-content: end;
+  }
+  .filter-center {
+    padding-left: 10px;
+  }
+}
+.filter-center {
+  display: flex;
+  justify-content: center;
+}

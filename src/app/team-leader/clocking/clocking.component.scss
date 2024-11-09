@@ -1,0 +1,116 @@
+.presence-container {
+  padding-top: 4rem;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  justify-content: center;
+}
+.presence-content {
+  padding: 40px 100px;
+  /* Neutral/background */
+
+  background: #f7f9fc;
+  /* Primary/grey blue */
+
+  border: 1px solid #cedfed;
+  border-radius: 8px;
+}
+
+.time {
+  padding: 3px;
+  border: 1px solid #cedfed;
+  border-radius: 8px;
+  color: #0075d6;
+  font-size: 35px;
+  text-align: center;
+}
+.day {
+  color: #3d3d3d;
+  font-size: 30px;
+  font-weight: 450;
+}
+:host ::ng-deep .mat-checked .mat-slide-toggle-bar {
+  background-color: #1ad22d;
+}
+:host ::ng-deep .mat-slide-toggle-bar {
+  background-color: #d2cb1a;
+}
+
+:host ::ng-deep .mat-checked .mat-slide-toggle-thumb {
+  background-color: #f7f9fc;
+}
+label {
+  color: #0075d6;
+}
+button {
+  width: 140px;
+  background-color: #0075d6;
+  border-radius: 8px;
+  font-size: 12px;
+}
+.btn-click-in {
+  margin-right: 40px;
+}
+@media (min-width: 768px) {
+  .hour {
+    display: flex;
+    justify-content: space-between;
+  }
+  .vertical-line {
+    border-left: 2px solid #d27ac5;
+    display: inline-block;
+    height: 180px !important;
+    margin: 0 20px;
+  }
+  .btn-clock {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .horizontal-line {
+    width: 100%;
+    border-top: 5px solid #d27ac5;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  .hour {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .btn-clock {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .time {
+    font-size: 50px;
+  }
+  .presence-container {
+    padding: 0;
+    padding-top: 20px;
+  }
+  .presence-content {
+    padding: 20px 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .presence-content {
+    padding: 32px 40px;
+  }
+  .btn-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn-click-in {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  button {
+    width: 200px;
+  }
+}

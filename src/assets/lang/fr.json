@@ -1,0 +1,61 @@
+{
+  "SignUpPage": {
+    "generalInformation": "Coordonnées generales",
+    "enterprise": "Enterprise",
+    "account": "Compte",
+    "responsibleFirstName": "Prénom du responsable",
+    "responsibleLastName": "Nom du responsable",
+    "companyName": "Nom de l’entreprise",
+    "employeesNumber": "Nombre d’employés",
+    "companyActivity": "Activité de l’entreprise",
+    "phoneNumber": "Numéro de téléphone",
+    "address": "Adresse",
+    "username": "Nom d’utilisateur",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "continue": "continuer",
+    "employeesNumberList": {
+      "1-14Employees": "De 1-14 employé(e)s",
+      "15-49Employees": "De 15-49 employé(e)s",
+      "50-99Employees": "De 50-99 employé(e)s",
+      "100-249Employees": "De 100-249 employé(e)s",
+      "250Employees": "Plus que 250 employé(e)s "
+    },
+    "addressList": {
+      "Tunisia": "Tunisie",
+      "France": "France"
+    }
+  },
+  "translateLanguage": "Anglais",
+  "translateParagraph": "Vous avez déja un compte ?",
+  "translateButton": "Connecter",
+  "ErrorMessages": {
+    "minLength3": "Entrez au moins 3 caractères",
+    "minLength8": "Entrez au moins 8 caractères.",
+    "requiredField": "Champs obligatoire.",
+    "emailInvalid": "le format de l'adresse-email n'est pas correcte.",
+    "passwordInvalid": "au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre.",
+    "passwordMinLength": "Le mot de passe doit contenir au minimum 12 caractères,"
+  },
+
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "employees": "Employés",
+    "presence": "Présence",
+    "authorisation": "Autorisation",
+    "expenses": "Dépenses",
+    "settings": "Réglage",
+    "logout": "Déconnexion",
+    "profile-employee": "Profil Employé",
+    "Error": "Page non trouvée"
+  },
+  "AddEmployee": {
+    "firstName": "Nom",
+    "lastName": "Prénom",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "department": "Département",
+    "team": "Équipe",
+    "role": "Role"
+  }
+}

@@ -1,0 +1,23 @@
+@media (min-width: 1200px) {
+  .page-container {
+    padding: 0.2em 1em !important;
+  }
+}
+
+.page-container {
+  padding: 0.2em 0px;
+  padding-bottom: 0;
+}
+/** No CSS for this example */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  color: #0075d6;
+  opacity: 1;
+}
+
+::ng-deep {
+  .mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: #0075d6;
+    height: 4px;
+    border-radius: 5px;
+  }
+}

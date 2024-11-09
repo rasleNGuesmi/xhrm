@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'ngx-toastr/toastr';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+$primary-color: #0075d6;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Lato;
+}
+
+@media (min-width: 768px) {
+  .featured-image {
+    background-size: 60% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .featured-image {
+    background-size: 40% !important;
+    font-size: 16px !important;
+  }
+}
+
+.featured-image {
+  background-color: #d9d9d9;
+  background-image: url('assets/logo_xhrm.png');
+  height: 100%;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 12px;
+}
+.featured-image-container {
+  background-color: #e1ebf3;
+  background-image: url('assets/logo_xhrm3.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  overflow: auto;
+}
+
+.mat-stepper-horizontal-line {
+  display: none !important;
+}
+
+.mat-step-icon {
+  border-radius: 8px !important;
+  background-color: #cedfed !important;
+}
+.mat-step-icon-selected {
+  background-color: $primary-color !important;
+}
+.mat-step-icon-state-edit {
+  background-color: #cedfed !important;
+}
+
+.mat-step-header {
+  padding: 0 !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.mat-horizontal-stepper-header-container {
+  padding: 0 24px;
+  gap: 5px;
+}
+.mat-step-text-label {
+  font-size: 11px;
+  color: #3d3d3d;
+}

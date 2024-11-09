@@ -1,0 +1,52 @@
+<div class="header">
+  <div class="icon">
+    <span
+      [matMenuTriggerFor]="menu"
+      mat-icon-button
+      aria-label="Example icon-button with a menu">
+      <svg
+        width="29"
+        height="26"
+        viewBox="0 0 29 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M2 2L26.2857 2M2 13L17 13M2 24L26.2857 24"
+          stroke="#0075D6"
+          stroke-width="4"
+          stroke-linecap="round" />
+      </svg>
+    </span>
+    <mat-menu #menu="matMenu">
+      <div class="sidebar">
+        <img src="assets/logo_xhrm2.png" />
+        <div class="nav-container-wrapper">
+          <ul class="nav-container">
+            <li
+              [routerLinkActiveOptions]="{ exact: true }"
+              *ngFor="let item of sidebarItems"
+              class="nav-item"
+              [routerLink]="item.url"
+              routerLinkActive="active">
+              <mat-icon>{{ item.iconName }}</mat-icon
+              ><span>{{ 'Sidebar.' + item.title | translate }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </mat-menu>
+  </div>
+  <div class="d-flex align-content-center">
+    <select
+      class="form-select form-select-sm p-2 me-2 border-0 select-lang"
+      aria-label=".form-select-sm example"
+      (change)="changeLang($event)">
+      <option value="fr">Fr</option>
+
+      <option value="en">En</option>
+    </select>
+    <span class="p-2 username">{{ username }}</span>
+    <img [src]="avatar" class="rounded-circle" alt="..." />
+  </div>
+</div>
+<h4 class="title mt-3">{{ title }}</h4>

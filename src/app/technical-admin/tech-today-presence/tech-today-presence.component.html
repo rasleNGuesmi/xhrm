@@ -1,0 +1,22 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="filter-position mb-2">
+  <app-search-bar (onValueChange)="applyFilter($event)"></app-search-bar>
+  <!-- TODO finish and add enterprise to filter -->
+  <app-filter
+    class="px-3"
+    (OnValueChangeDepartment)="onDepartmentFilterValueChange($event)"
+    (OnValueChangeTeam)="onTeamFilterValueChange($event)"
+    (OnValueChangeProfession)="
+      onProfessionFilterValueChange($event)
+    "></app-filter>
+</div>
+
+<app-table
+  (sortchange)="handleSort($event)"
+  [dataSource]="dataSource"
+  [headArray]="columns"
+  [ExpandedColumns]="displayedColumns"
+  [paginatorData]="paginatorData"
+  (pagechange)="onPaginateChange($event)"></app-table>

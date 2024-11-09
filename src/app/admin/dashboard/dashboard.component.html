@@ -1,0 +1,73 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="content">
+  <div class="bloc-container">
+    <div class="bloc notif">
+      <div style="margin: 15px 30px">
+        <p class="title">{{ 'Bonjour Mr. ' + admin_name | uppercase }}</p>
+        <div class="responsive">
+          <p class="mb-1">Aujourd’hui vous avez:</p>
+          <p style="padding-left: 10px; margin-bottom: 0px">
+            <span> • {{ totalLeave }}</span> nouvelles demandes de congé
+          </p>
+          <p style="padding-left: 10px" class="mb-1">
+            <span> • {{ totalAuthorization }}</span> nouvelles demandes de
+            sortie.
+          </p>
+          <button class="btn btn-md btn-primary" (click)="onClick()">
+            CONSULTER LES DEMANDES
+          </button>
+        </div>
+      </div>
+      <div class="mx-5 d-flex align-items-center d-md-block d-none">
+        <img src="assets/img-dashboard.png" />
+      </div>
+    </div>
+    <div class="bloc" style="margin-bottom: 0 !important">
+      <div style="padding: 15px 30px">
+        <p class="title">
+          {{ total + '% de votre employés sont là:' | uppercase }}
+        </p>
+        <div class="progress-circle row">
+          <app-circle-progress
+            class="col-sm-3 col-12"
+            [backgroundColor]="'#FFF4E8'"
+            [outerStrokeColor]="'#F58A07'"
+            [percent]="remote"
+            [subtitle]="'Télétravail'"></app-circle-progress>
+          <app-circle-progress
+            class="col-sm-3 col-12"
+            [backgroundColor]="'#FDEBFA'"
+            [outerStrokeColor]="'#CB48B7'"
+            [percent]="office"
+            [subtitle]="'Au bureau'"></app-circle-progress>
+          <app-circle-progress
+            class="col-sm-3 col-12"
+            [backgroundColor]="'#FFE9E9'"
+            [outerStrokeColor]="'#D21A1A'"
+            [percent]="absent"
+            [subtitle]="'Absent'"></app-circle-progress>
+        </div>
+      </div>
+    </div>
+    <div class="bloc-table">
+      <p class="title" style="padding: 15px 30px 0">
+        {{ 'Certaines dépenses périodiques sont bientôt dues:' | uppercase }}
+      </p>
+      <app-table
+        (sortchange)="handleSort($event)"
+        [dataSource]="dataSource"
+        [headArray]="columns"
+        [ExpandedColumns]="displayedColumns"
+        [paginatorData]="paginatorData"
+        (pagechange)="onPaginateChange($event)"></app-table>
+    </div>
+  </div>
+  <app-right-sidebar
+    [office]="office"
+    [remote]="remote"
+    [listConnected]="listConnected"
+    [list]="list"
+    class="right-index"></app-right-sidebar>
+</div>

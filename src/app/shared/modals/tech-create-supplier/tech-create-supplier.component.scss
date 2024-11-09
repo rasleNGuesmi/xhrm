@@ -1,0 +1,95 @@
+.add {
+  width: 260px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Lato';
+  font-style: normal;
+}
+@media (max-width: 576px) {
+  .add {
+    margin-bottom: 10px;
+  }
+}
+
+label {
+  font-size: 16px;
+  color: #3d3d3d;
+  margin-bottom: 0;
+}
+h5 {
+  color: #3d3d3d;
+}
+select {
+  height: 42px;
+
+  /* styling */
+  background-color: white;
+  border: 2px solid #cedfed;
+  border-radius: 8px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: linear-gradient(45deg, transparent 50%, #60a5de 50%),
+  linear-gradient(135deg, #60a5de 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+  calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  appearance: none;
+}
+option {
+  color: #3d3d3d;
+}
+.add-btn {
+  background-color: #e5f3ff;
+
+  &:hover {
+    color: #0075d6;
+  }
+
+  &:focus {
+    color: white;
+  }
+}
+.modal-header {
+  padding: 10px 35px;
+}
+.modal-body {
+  padding: 15px 35px;
+  overflow: auto;
+}
+
+.error {
+  color: red;
+  font-size: 11px;
+}
+p {
+  text-align: center;
+  color: #0075d6;
+  font-weight: bold;
+}
+
+input {
+  background-color: white;
+  border: 2px solid #cedfed;
+  border-radius: 8px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 0.5em 0.5em 1em;
+  height: 20px;
+}
+.button-save {
+  font-size: 12px;
+  width: 100%;
+}

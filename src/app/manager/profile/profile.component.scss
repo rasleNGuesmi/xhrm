@@ -1,0 +1,180 @@
+@media (min-width: 992px) {
+  .bloc-container {
+    width: 70%;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 64px);
+  }
+}
+@media (max-width: 992px) {
+  .right-index {
+    position: absolute;
+    right: 0px;
+    top: 150px;
+    z-index: 0;
+  }
+}
+.user-info {
+  align-items: flex-start;
+  padding-left: 50px;
+  display: flex;
+}
+
+.avatar-container {
+  position: relative;
+  width: fit-content;
+}
+
+.title {
+  color: #0075d6;
+  font-weight: bold;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 17px;
+}
+
+.title::after {
+  border-bottom: 2px solid#0075D6;
+  content: '';
+  display: block;
+  position: relative;
+  bottom: 1px;
+}
+
+.form-layout {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: inline-block;
+}
+
+form {
+  padding-left: 60px;
+  padding-right: 40px;
+  display: inline-block;
+}
+.position {
+  padding: 29px;
+}
+
+.field {
+  height: 20px;
+  width: 300px;
+}
+
+.form-label {
+  size: 11px;
+  display: inline-block;
+  text-align: right;
+  width: 150px;
+}
+.profile-btn {
+  border-radius: 8px;
+  color: #0075d6;
+  height: 35px;
+  text-align: center;
+  width: 250px;
+  &:hover {
+    color: white;
+  }
+}
+
+input {
+  height: 32px;
+  border-radius: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  width: 350px;
+}
+
+.form-select {
+  height: 41px;
+  width: 350px;
+  margin-left: 10px;
+}
+
+select {
+  background-color: white;
+  border: 2px solid #cedfed;
+  border-radius: 8px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: linear-gradient(45deg, transparent 50%, #60a5de 50%),
+    linear-gradient(135deg, #60a5de 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  appearance: none;
+}
+
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #60a5de;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+}
+img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.hoverable {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.hoverable .hover-text {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.hoverable .background {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+.hoverable:hover .hover-text {
+  display: block;
+}
+.hoverable:hover .background {
+  display: block;
+}
+
+#fileInput {
+  display: none;
+}

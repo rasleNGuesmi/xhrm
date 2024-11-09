@@ -1,0 +1,87 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Demander un congé</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="leaveRequest">
+      <p>Vous reste {{ days_left }}/{{ enterprise_leave_days }} jours</p>
+      <div class="mb-2">
+        <label class="form-label">Date de début</label>
+        <input
+          type="date"
+          class="form-control form-control-sm"
+          formControlName="startDate" />
+        <span
+          class="error"
+          *ngIf="startDate.hasError('required') && startDate.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Nombre de jours</label>
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          formControlName="daysNumber" />
+        <span
+          class="error"
+          *ngIf="daysNumber.hasError('required') && daysNumber.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Type de congé</label>
+
+        <div class="d-flex justify-content-between">
+          <select
+            class="form-select form-select-sm"
+            aria-label=".form-select-sm example"
+            formControlName="typeLeave">
+            <option selected></option>
+            <option *ngFor="let type of typesLeave">{{ type }}</option>
+          </select>
+        </div>
+        <span
+          class="error"
+          *ngIf="typeLeave.hasError('required') && typeLeave.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+      <div class="mb-2">
+        <label class="form-label"
+          >Raisons <span class="text-muted">(optionnel)</span></label
+        >
+        <textarea
+          class="form-control"
+          formControlName="reason"
+          style="height: 100px"></textarea>
+      </div>
+      <div class="d-flex mt-4">
+        <button
+          style="margin-right: 8px"
+          type="button"
+          class="btn btn-default btn-outline-primary pull-right button-save"
+          (click)="d('Cross click')">
+          Annuler
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary button-save"
+          (click)="createLeave()">
+          ENREGISTRER
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-primary add" (click)="open(content)">
+  DEMANDER UN CONGÉ
+</button>

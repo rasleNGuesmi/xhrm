@@ -1,0 +1,10 @@
+.filter-position {
+  display: flex;
+  justify-content: end;
+}
+@media (max-width: 576px) {
+  .filter-position {
+    display: flex;
+    justify-content: center;
+  }
+}

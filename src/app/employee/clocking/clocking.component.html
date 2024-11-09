@@ -1,0 +1,47 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="presence-container container">
+  <div class="presence-content">
+    <div class="hour">
+      <div>
+        <p style="color: #cb48b7; font-size: 30px">Heure actuelle</p>
+        <p class="time">
+          {{ today | date : 'H : mm :ss ' }}
+        </p>
+      </div>
+      <span class="vertical-line"></span>
+      <span class="horizontal-line"></span>
+      <div class="day">
+        <p>{{ today | date : 'EEEE' }},</p>
+
+        <p>{{ today | date : 'd MMMM  y' }}</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center py-3">
+      <label class="px-2">BUREAU</label>
+      <mat-slide-toggle
+        class="example-margin"
+        [(ngModel)]="isBureauChecked"
+        (change)="updateWorkMode()">
+        <label>TÉLÉTRAVAIL</label>
+      </mat-slide-toggle>
+    </div>
+    <div class="btn-clock">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm btn-click-in"
+        [disabled]="clock"
+        (click)="clockIn()">
+        CLOCK IN
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        [disabled]="!clock"
+        (click)="clockOut()">
+        CLOCK OUT
+      </button>
+    </div>
+  </div>
+</div>

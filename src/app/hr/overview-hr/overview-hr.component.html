@@ -1,0 +1,13 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<app-search-bar
+  class="filter-position mb-2"
+  (onValueChange)="applyFilter($event)"></app-search-bar>
+<app-table
+  (sortchange)="handleSort($event)"
+  [dataSource]="dataSource"
+  [headArray]="columns"
+  [ExpandedColumns]="displayedColumns"
+  [paginatorData]="paginatorData"
+  (pagechange)="onPaginateChange($event)"></app-table>

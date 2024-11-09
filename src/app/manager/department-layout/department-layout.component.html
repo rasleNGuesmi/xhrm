@@ -1,0 +1,25 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="page-container">
+  <div class="filter-center">
+    <app-search-bar
+      class="pe-3"
+      (onValueChange)="applyFilter($event)"></app-search-bar>
+    <app-filter-team
+      (OnValueChangeTeam)="onTeamFilterValueChange($event)"
+      (OnValueChangeProfession)="
+        onProfessionFilterValueChange($event)
+      "></app-filter-team>
+  </div>
+  <app-table
+    (sortchange)="handleSort($event)"
+    [dataSource]="dataSource"
+    [headArray]="columns"
+    [ExpandedColumns]="displayedColumns"
+    [paginatorData]="paginatorData"
+    (pagechange)="onPaginateChange($event)"></app-table>
+</div>
+<div class="col-sm-12 d-md-none d-block p-3">
+  <div class="d-flex justify-content-between mb-2"></div>
+</div>

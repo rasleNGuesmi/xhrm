@@ -1,0 +1,68 @@
+.bloc {
+  background: #ffffff;
+  /* Glass Effect */
+  box-shadow: 0px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px);
+  /* Glass Effect */
+  width: 400px;
+  height: calc(100vh - 64px);
+}
+.bloc-small {
+  background: #ffffff;
+  /* Glass Effect */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px);
+  /* Glass Effect */
+  width: 300px;
+  height: calc(100vh - 64px);
+}
+
+.time {
+  background: linear-gradient(
+    268.16deg,
+    rgba(92, 172, 255, 0.6) 0%,
+    rgba(145, 221, 248, 0.4) 100%
+  );
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid #cedfed;
+  color: #0075d6;
+  font-weight: 600;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.birthdays {
+  max-height: 110px;
+  overflow-y: auto;
+  background-image: url('../../../../../src/assets/birthday.png'),
+    linear-gradient(
+      268.16deg,
+      rgba(92, 172, 255, 0.6) 0%,
+      rgba(145, 221, 248, 0.4) 100%
+    );
+  border-radius: 8px;
+
+  margin-bottom: 10px;
+}
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #60a5de;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+}
+.present {
+  background: linear-gradient(
+    268.16deg,
+    rgba(92, 172, 255, 0.6) 0%,
+    rgba(145, 221, 248, 0.4) 100%
+  );
+  border-radius: 8px;
+}

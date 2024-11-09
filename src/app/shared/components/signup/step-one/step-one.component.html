@@ -1,0 +1,121 @@
+<form class="row g-3" [formGroup]="generalInformation">
+  <div class="col-6">
+    <label class="form-label">{{
+      'SignUpPage.responsibleFirstName' | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="responsibleFirstName" />
+    <span
+      class="error"
+      *ngIf="
+        responsibleFirstName.hasError('required') &&
+        responsibleFirstName.touched
+      ">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="responsibleFirstName.hasError('minlength')">{{
+      'ErrorMessages.minLength3' | translate
+    }}</span>
+  </div>
+  <div class="col-6">
+    <label for="inputPassword4" class="form-label">{{
+      'SignUpPage.responsibleLastName' | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputPassword4"
+      formControlName="responsibleLastName"
+      minlength="3" />
+    <span
+      class="error"
+      *ngIf="
+        responsibleLastName.hasError('required') && responsibleLastName.touched
+      ">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="responsibleLastName.hasError('minlength')">{{
+      'ErrorMessages.minLength3' | translate
+    }}</span>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">{{
+      'SignUpPage.companyName' | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputAddress"
+      formControlName="companyName"
+      minlength="3" />
+    <span
+      class="error"
+      *ngIf="companyName.hasError('required') && companyName.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="companyName.hasError('minlength')">{{
+      'ErrorMessages.minLength3' | translate
+    }}</span>
+  </div>
+  <div class="col-12">
+    <label class="form-label">{{
+      'SignUpPage.employeesNumber' | translate
+    }}</label>
+    <select class="form-select" required formControlName="employeesNumber">
+      <option [value]="'1-14'" class="select-option">
+        {{ 'SignUpPage.employeesNumberList.1-14Employees' | translate }}
+      </option>
+      <option [value]="'15-49'" class="select-option">
+        {{ 'SignUpPage.employeesNumberList.15-49Employees' | translate }}
+      </option>
+      <option [value]="'70em'" class="select-option">
+        {{ 'SignUpPage.employeesNumberList.50-99Employees' | translate }}
+      </option>
+      <option class="select-option">
+        {{ 'SignUpPage.employeesNumberList.100-249Employees' | translate }}
+      </option>
+      <option class="select-option">
+        {{ 'SignUpPage.employeesNumberList.250Employees' | translate }}
+      </option>
+    </select>
+    <span
+      class="error"
+      *ngIf="employeesNumber.hasError('required') && employeesNumber.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+  </div>
+  <!--
+  <div class="d-grid gap-2 col-12 mx-auto">
+    <button
+      (click)="onSubmitClick()"
+      mat-button
+      matStepperNext
+      class="btn btn-primary"
+      type="button"
+      [disabled]="!generalInformation.valid">
+      {{ 'SignUpPage.continue' | translate }}
+    </button>
+  </div>
+  -->
+  <div class="d-flex mt-4">
+    <button
+      style="margin-right: 8px"
+      type="button"
+      class="btn btn-default btn-outline-primary pull-right button-save"
+      (click)="emitClose()">
+      Annuler
+    </button>
+
+    <button
+      (click)="onSubmitClick()"
+      matStepperNext
+      type="button"
+      class="btn btn-primary button-save"
+      [disabled]="!generalInformation.valid">
+      <!-- (click)="createEnterprise()"> -->
+      SUIVANT
+    </button>
+  </div>
+</form>

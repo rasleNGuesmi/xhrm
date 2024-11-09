@@ -1,0 +1,69 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="content">
+  <div class="bloc-container">
+    <div class="bloc notif">
+      <div style="margin: 15px 30px">
+        <p class="title">{{ 'Bonjour Mr.' + username | uppercase }}</p>
+        <div class="responsive">
+          <p class="mb-1">Vous avez:</p>
+          <p style="padding-left: 10px; margin-bottom: 0px">
+            <span> • {{ pending_leave_number }}</span> demandes de congé en
+            attente.
+          </p>
+          <p style="padding-left: 10px" class="mb-1">
+            <span> • {{ pending_authorization_number }}</span> demandes de
+            sortie en attente.
+          </p>
+          <button class="btn btn-md btn-primary" (click)="onClick()">
+            CONSULTER MES DEMANDES
+          </button>
+        </div>
+      </div>
+      <div class="mx-5 d-flex align-items-center d-md-block d-none">
+        <img src="assets/img-dashboard.png" />
+      </div>
+    </div>
+    <div class="bloc" style="margin-bottom: 0 !important">
+      <div style="padding: 15px 30px">
+        <p class="title">
+          {{ total + '% de vos collègues sont là: ' | uppercase }}
+        </p>
+        <div class="progress-circle row">
+          <app-circle-progress
+            class="col-sm-3 col-12"
+            [backgroundColor]="'#FFF4E8'"
+            [outerStrokeColor]="'#F58A07'"
+            [percent]="remote"
+            [subtitle]="'Télétravail'"></app-circle-progress>
+          <app-circle-progress
+            class="col-sm-3 col-12"
+            [backgroundColor]="'#FDEBFA'"
+            [outerStrokeColor]="'#CB48B7'"
+            [percent]="office"
+            [subtitle]="'Au bureau'"></app-circle-progress>
+          <app-circle-progress
+            class="col-sm-3 col-12"
+            [backgroundColor]="'#FFE9E9'"
+            [outerStrokeColor]="'#D21A1A'"
+            [percent]="absent"
+            [subtitle]="'Absent'"></app-circle-progress>
+        </div>
+      </div>
+    </div>
+    <div class="bloc-table">
+      <app-calendar
+        [absence]="absence_num"
+        [office]="office_num"
+        [remote]="remote_num"
+        [hidden]="false"></app-calendar>
+    </div>
+  </div>
+  <app-right-sidebar
+    [remote]="remote"
+    [office]="office"
+    [listConnected]="listConnected"
+    [list]="list"
+    class="right-index"></app-right-sidebar>
+</div>

@@ -1,0 +1,96 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="row text-center pt-3" *ngIf="hidden" style="margin: 0">
+  <div class="col-lg-9 col-md-6 d-flex p-0">
+    <p>{{ viewDate | calendarDate : view + 'ViewTitle' : 'en' }}</p>
+    <div
+      class="btn btn-outline-primary"
+      style="width: 200px; font-size: 16px; height: 35px"
+      mwlCalendarToday
+      [(viewDate)]="viewDate">
+      AUJOURD’HUI
+    </div>
+
+    <div class="btn-group" style="height: 35px; padding-left: 30px">
+      <div
+        style="margin-right: 4px"
+        class="btn btn-primary"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()">
+        <mat-icon>arrow_back_ios</mat-icon>
+      </div>
+
+      <div
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()">
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 date">
+    <div class="btn-group">
+      <div
+        class="btn btn-outline-primary"
+        (click)="setView(CalendarView.Month)"
+        [class.active]="view === CalendarView.Month">
+        Mois
+      </div>
+      <div
+        class="btn btn-outline-primary"
+        (click)="setView(CalendarView.Week)"
+        [class.active]="view === CalendarView.Week">
+        Semaine
+      </div>
+      <div
+        class="btn btn-outline-primary"
+        (click)="setView(CalendarView.Day)"
+        [class.active]="view === CalendarView.Day">
+        Jour
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!hidden">
+  <h6 class="text-center pt-3 pb-2" style="color: #0075d6">
+    Ce mois, vous avez travaillé
+    <span style="color: #cb48b7">{{ office | number }} jours</span> au bureau,
+    <span style="color: #f58a07">{{ remote }} jours</span> Télétravail et absent
+    <span style="color: #d21a1a">{{ absence }} jours</span>.
+  </h6>
+</div>
+
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="CalendarView.Month"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view
+    *ngSwitchCase="CalendarView.Week"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="CalendarView.Day"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)">
+  </mwl-calendar-day-view>
+</div>
+
+<div *ngIf="hidden" class="d-flex justify-content-end mt-3">
+  <div class="office">Bureau {{ office }} jours</div>
+  <div class="remote mx-3">Télétravail {{ remote }} jours</div>
+  <div class="absence">Hors ligne {{ absence }} jours</div>
+</div>

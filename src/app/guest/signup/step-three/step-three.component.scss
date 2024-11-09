@@ -1,0 +1,21 @@
+.select-option {
+  background-color: #4297dd;
+  color: white;
+}
+.form-label {
+  font-size: 0.75em;
+  font-weight: bolder;
+}
+
+.mat-stepper-horizontal-line {
+  display: none !important;
+}
+
+.mat-step-icon {
+  border-radius: 4px !important;
+}
+
+.error {
+  color: red;
+  font-size: 11px;
+}

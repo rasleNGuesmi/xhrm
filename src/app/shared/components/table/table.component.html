@@ -1,0 +1,181 @@
+<div class="table-small">
+  <div class="my-custom-scrollbar">
+    <table
+      mat-table
+      multiTrowlateDataRows
+      (matSortChange)="sortData($event)"
+      [dataSource]="dataSource"
+      matSort>
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <ng-container
+        [matColumnDef]="column.name"
+        *ngFor="let column of headArray">
+        <ng-container>
+          <th class="columns" mat-sort-header mat-header-cell *matHeaderCellDef>
+            {{ column.label }}
+          </th>
+        </ng-container>
+        <td mat-cell *matCellDef="let row">
+          <ng-container *ngIf="column.name === 'first_name'" class="name"
+            ><div class="c-avatar" style="text-align: start !important">
+              <img [src]="row['avatar']" class="c-avatar__image" />
+              <span
+                class="c-avatar__status-offline"
+                *ngIf="row['Travail'] === 'Hors ligne'"></span>
+              <span
+                class="c-avatar__status-online"
+                *ngIf="row['Travail'] !== 'Hors ligne'"></span>
+            </div>
+            {{ row[column.name] }}
+          </ng-container>
+
+          <ng-container *ngIf="column.name === 'Travail'">
+            <span
+              [style.color]="
+                row[column.name] === 'Présentiel'
+                  ? '#1AD22D'
+                  : row[column.name] === 'Télétravail'
+                  ? '#D2CB1A'
+                  : '#D21A1A'
+              ">
+              {{ row[column.name] }}
+            </span>
+          </ng-container>
+
+          <ng-container *ngIf="column.name === 'state'">
+            <span
+              [style.color]="
+                row[column.name] === 'Accepté'
+                  ? '#1AD22D'
+                  : row[column.name] === 'Réfusé'
+                  ? '#D21A1A'
+                  : '#D2CB1A'
+              ">
+              {{ row[column.name] }}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="column.name === 'initial_date'">
+            {{ row[column.name] | date : 'dd MMMM yyyy' }}
+          </ng-container>
+          <ng-container *ngIf="column.name === 'De'">
+            {{ row[column.name] | date : 'H:mm' }}h
+          </ng-container>
+          <ng-container *ngIf="column.name === 'A'">
+            {{ row[column.name] | date : 'H:mm' }}h
+          </ng-container>
+
+          <ng-container *ngIf="column.name === 'Derniér congé'">
+            {{ row[column.name] | date : 'dd MMMM yyyy' }}
+          </ng-container>
+          <ng-container *ngIf="column.name === 'Derniére sorties'">
+            {{ row[column.name] | date : 'dd MMMM yyyy' }}
+          </ng-container>
+          <ng-container *ngIf="column.name === 'clock-in'">
+            <span style="color: #0075d6">
+              {{ row[column.name] }}
+            </span>
+          </ng-container>
+          <ng-container *ngIf="column.name === 'clock-out'">
+            <span style="color: #0075d6">
+              {{ row[column.name] }}
+            </span>
+          </ng-container>
+          <ng-container
+            *ngIf="column.name === 'Total de sorties atteint par mois'">
+            {{ row[column.name] }} Heures
+          </ng-container>
+          <ng-container *ngIf="column.name === 'link'">
+            <a [href]="row[column.name]" style="color: #3fa2f7">
+              {{ row[column.name] }}</a
+            >
+          </ng-container>
+          <ng-container *ngIf="column.name === 'website'">
+            <a [href]="row[column.name]" style="color: #3fa2f7">
+              {{ row[column.name] }}</a
+            >
+          </ng-container>
+
+          <ng-container *ngIf="column.name === ' '">
+            <span
+              type="button"
+              mat-icon-button
+              [matMenuTriggerFor]="
+                row['state'] !== 'Accepté' && row['state'] !== 'Réfusé'
+                  ? menu
+                  : null
+              "
+              aria-label="Example icon-button with a menu">
+              <mat-icon>more_horiz</mat-icon>
+            </span>
+            <mat-menu #menu="matMenu">
+              <button
+                (click)="handleActionClick(action, row)"
+                mat-menu-item
+                class="btn btn-sm"
+                *ngFor="let action of column.actions">
+                <mat-icon>{{ action.icon }}</mat-icon>
+                <span>{{ action.name }}</span>
+              </button>
+            </mat-menu>
+          </ng-container>
+          <ng-container
+            *ngIf="column.name === 'amount' || column.name === 'price'">
+            {{ row[column.name] + 'dt' }}
+          </ng-container>
+          <ng-container
+            *ngIf="
+              column.name === 'reason' ||
+              column.name === 'comment' ||
+              column.name === 'team' ||
+              column.name === 'department' ||
+              column.name === 'contact' ||
+              column.name === 'position'
+            ">
+            <span style="color: #cedfed" *ngIf="row[column.name] === null"
+              >--:--:--:--:--</span
+            >
+            {{ row[column.name] }}
+          </ng-container>
+          <ng-container
+            *ngIf="
+              ![
+                'first_name',
+                'state',
+                'Travail',
+                ' ',
+                'initial_date',
+                'A',
+                'De',
+                'Derniér congé',
+                'Derniére sorties',
+                'clock-out',
+                'clock-in',
+                'Total de sorties atteint par mois',
+                'website',
+                'link',
+                'amount',
+                'price',
+                'reason',
+                'comment',
+                'position',
+                'team',
+                'department',
+                'contact'
+              ].includes(column.name)
+            "
+            >{{ row[column.name] }}</ng-container
+          >
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="ExpandedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: ExpandedColumns"></tr>
+    </table>
+  </div>
+  <app-paginator-table
+    class="paginator"
+    [paginatorData]="paginatorData"
+    (paginationEvent)="onPaginateChange($event)"></app-paginator-table>
+</div>

@@ -1,0 +1,11 @@
+.previous {
+  color: #0075d6;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.paragraph {
+  font-size: 18px;
+}

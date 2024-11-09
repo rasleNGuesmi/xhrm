@@ -1,0 +1,21 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="d-flex filter-position">
+  <app-tech-authorization-request
+    (authorizationRequestCreated)="retrieveAllAuthorization()">
+  </app-tech-authorization-request>
+  <app-search-bar
+    class="mb-2 mx-2"
+    (onValueChange)="applyFilter($event)"></app-search-bar>
+  <!-- TODO FILTER -->
+  <app-filter></app-filter>
+</div>
+<app-table
+  (sortchange)="handleSort($event)"
+  [dataSource]="dataSource"
+  [headArray]="columns"
+  [ExpandedColumns]="displayedColumns"
+  [paginatorData]="paginatorData"
+  (pagechange)="onPaginateChange($event)"></app-table>
+<!-- TODO ADD + FUNCTIONS -->

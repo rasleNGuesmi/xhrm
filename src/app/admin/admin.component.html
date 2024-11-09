@@ -1,0 +1,23 @@
+<div style="display: flex; height: 100vh" class="featured-image-container">
+  <app-side-bar-component
+    class="d-none d-sm-block"
+    [sidebarItems]="sidebarItems"
+    [sideBarSettingsItems]="sideBarSettingsItems"></app-side-bar-component>
+
+  <div style="flex: 1; display: flex; flex-direction: column">
+    <app-header-component
+      class="d-none d-sm-block"
+      title="{{ 'Sidebar.' + path | translate }}"
+
+[username]="username"      avatar="assets/avatar.png"></app-header-component>
+    <app-header-menu
+      class="d-sm-none d-block"
+      title="{{ 'Sidebar.' + path | translate }}"
+      username="Lorem Ipsum"
+      avatar="assets/avatar.png"
+      [sideBarSettingsItems]="sideBarSettingsItems"
+      [sidebarItems]="sidebarItems"></app-header-menu>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

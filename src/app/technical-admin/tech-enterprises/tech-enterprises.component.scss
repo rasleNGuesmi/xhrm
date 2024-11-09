@@ -1,0 +1,31 @@
+@media (min-width: 1200px) {
+  .page-container {
+    padding: 1em !important;
+  }
+}
+
+.page-container {
+  padding: 0.5em 0px;
+  padding-bottom: 0;
+}
+
+@media (min-width: 576px) {
+  .btn-center {
+    display: flex;
+    justify-content: space-between;
+  }
+  .filter-position {
+    display: flex;
+    justify-content: end;
+  }
+}
+.filter-position {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 576px) {
+  .filter-center {
+    display: flex;
+    justify-content: center;
+  }
+}

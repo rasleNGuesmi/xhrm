@@ -1,0 +1,36 @@
+<div>
+  <div class="featured-image">
+    <app-guest-layout>
+      <mat-horizontal-stepper
+        color="primary"
+        style="background-color: unset"
+        labelPosition="end"
+        [disableRipple]="true"
+        linear="true"
+        #stepper>
+        <mat-step
+          [stepControl]="generalInformation"
+          label="{{ 'SignUpPage.generalInformation' | translate }}">
+          <app-step-one (submit)="onSubmit1($event)"></app-step-one>
+        </mat-step>
+        <mat-step
+          label="{{ 'SignUpPage.enterprise' | translate }}"
+          [stepControl]="company">
+          <app-step-two (submit)="onSubmit2($event)"></app-step-two>
+        </mat-step>
+        <mat-step
+          label="{{ 'SignUpPage.account' | translate }}"
+          [stepControl]="account">
+          <app-step-three (submit)="onSubmit3($event)"></app-step-three>
+        </mat-step>
+      </mat-horizontal-stepper>
+
+      <div style="text-align: center">
+        <p style="margin-bottom: 0">{{ 'translateParagraph' | translate }}</p>
+        <a routerLink="/guest/login" style="color: #f58a07">{{
+          'translateButton' | translate
+        }}</a>
+      </div>
+    </app-guest-layout>
+  </div>
+</div>

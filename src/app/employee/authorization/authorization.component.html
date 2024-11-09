@@ -1,0 +1,16 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="search-add-center">
+  <app-authorization-request
+    (authorizationRequestCreated)="retrieveAllAuthorization()"
+    class="btn-add"></app-authorization-request>
+  <app-search-bar (onValueChange)="applyFilter($event)"></app-search-bar>
+</div>
+<app-table
+  (sortchange)="handleSort($event)"
+  [dataSource]="dataSource"
+  [headArray]="columns"
+  [ExpandedColumns]="displayedColumns"
+  [paginatorData]="paginatorData"
+  (pagechange)="onPaginateChange($event)"></app-table>

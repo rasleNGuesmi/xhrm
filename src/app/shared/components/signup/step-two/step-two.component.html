@@ -1,0 +1,74 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<form class="row g-3" [formGroup]="company">
+  <div class="col-12">
+    <label class="form-label">{{
+      'SignUpPage.companyActivity' | translate
+    }}</label>
+    <input type="text" class="form-control" formControlName="companyActivity" />
+    <span
+      class="error"
+      *ngIf="companyActivity.hasError('required') && companyActivity.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="companyActivity.hasError('minlength')">{{
+      'ErrorMessages.minLength8' | translate
+    }}</span>
+  </div>
+  <div class="col-12">
+    <label class="form-label">{{ 'SignUpPage.phoneNumber' | translate }}</label>
+    <input type="number" class="form-control" formControlName="phoneNumber" />
+    <span
+      class="error"
+      *ngIf="phoneNumber.hasError('required') && phoneNumber.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="phoneNumber.hasError('minlength')">{{
+      'ErrorMessages.minLength8' | translate
+    }}</span>
+  </div>
+  <div class="col-12">
+    <label class="form-label">{{ 'SignUpPage.address' | translate }}</label>
+    <input type="text" class="form-control" formControlName="address" />
+    <span class="error" *ngIf="address.hasError('required') && address.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="address.hasError('minlength')">{{
+      'ErrorMessages.minLength3' | translate
+    }}</span>
+  </div>
+
+  <!--
+  <div class="d-grid gap-2 col-12 mx-auto">
+    <button
+      (click)="onSubmitClick()"
+      mat-button
+      matStepperNext
+      class="btn btn-primary"
+      type="button"
+      [disabled]="!company.valid">
+      {{ 'SignUpPage.continue' | translate }}
+    </button>
+  </div>
+  -->
+  <div class="d-flex mt-4">
+    <button
+      style="margin-right: 8px"
+      type="button"
+      class="btn btn-default btn-outline-primary pull-right button-save"
+      (click)="emitClose()">
+      Annuler
+    </button>
+
+    <button
+      (click)="onSubmitClick()"
+      matStepperNext
+      type="button"
+      class="btn btn-primary button-save"
+      [disabled]="!company.valid">
+      <!-- (click)="createEnterprise()"> -->
+      SUIVANT
+    </button>
+  </div>
+</form>

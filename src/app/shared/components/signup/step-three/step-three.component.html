@@ -1,0 +1,97 @@
+<form class="row g-3" [formGroup]="account">
+  <div class="col-12">
+    <label class="form-label">{{ 'SignUpPage.username' | translate }}</label>
+    <input type="text" class="form-control" formControlName="username" />
+    <span
+      class="error"
+      *ngIf="username.hasError('required') && username.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="username.hasError('minlength')">{{
+      'ErrorMessages.minLength3' | translate
+    }}</span>
+  </div>
+  <div class="col-12">
+    <label class="form-label">{{ 'SignUpPage.email' | translate }}</label>
+    <input type="email" class="form-control" formControlName="email" />
+    <span class="error" *ngIf="email.hasError('required') && email.touched">
+      {{ 'ErrorMessages.requiredField' | translate }}</span
+    >
+    <span class="error" *ngIf="email.hasError('email')">{{
+      'ErrorMessages.emailInvalid' | translate
+    }}</span>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">{{ 'SignUpPage.password' | translate }}</label>
+    <div
+      class="input-group"
+      style="display: flex; justify-content: flex-end !important">
+      <input
+        [type]="visible ? 'password' : 'text'"
+        class="form-control"
+        formControlName="password" />
+
+      <span
+        (click)="password_visible()"
+        class="input-group-text"
+        id="basic-addon2"
+        ><mat-icon
+          style="color: #0075d6"
+          [style.display]="visible ? 'none' : 'contents'"
+          >visibility
+        </mat-icon>
+        <mat-icon
+          style="color: #0075d6"
+          [style.display]="visible ? 'contents' : 'none'"
+          >visibility_off
+        </mat-icon></span
+      >
+    </div>
+    <span
+      class="error"
+      *ngIf="password.hasError('required') && password.touched">
+      Required field</span
+    >
+    <span class="error" *ngIf="password.hasError('pattern')"
+      >{{ 'ErrorMessages.passwordMinLength' | translate }}
+    </span>
+    <br />
+    <span class="error" *ngIf="password.hasError('pattern')">{{
+      'ErrorMessages.passwordInvalid' | translate
+    }}</span>
+  </div>
+
+  <!--
+  <div class="d-grid gap-2 col-12 mx-auto">
+    <button
+      (click)="onSubmitClick()"
+      mat-button
+      class="btn btn-primary"
+      type="button"
+      [disabled]="!account.valid">
+      {{ 'SignUpPage.continue' | translate }}
+    </button>
+  </div>
+  -->
+  <div class="d-flex mt-4">
+    <button
+      style="margin-right: 8px"
+      type="button"
+      class="btn btn-default btn-outline-primary pull-right button-save"
+      (click)="emitClose()">
+      <!-- TODO SEND TO CLOSE MODAL -->
+      <!-- (click)="d('Cross click')"> -->
+      Annuler
+    </button>
+
+    <button
+      (click)="onSubmitClick()"
+      type="button"
+      class="btn btn-primary button-save"
+      [disabled]="!account.valid">
+      <!-- (click)="createEnterprise()"> -->
+      ENREGISTRER
+    </button>
+  </div>
+</form>

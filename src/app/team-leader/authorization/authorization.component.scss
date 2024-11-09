@@ -1,0 +1,21 @@
+.search-add-center {
+  display: flex;
+  justify-content: end !important;
+  margin-bottom: 10px;
+}
+.search-add-center {
+  padding-right: 10px;
+}
+@media (max-width: 576px) {
+  .search-add-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .btn-add {
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding-right: 0;
+  }
+}

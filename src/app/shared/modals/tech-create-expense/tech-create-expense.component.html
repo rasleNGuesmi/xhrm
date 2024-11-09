@@ -1,0 +1,103 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Ajouter une dépense</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addExpense">
+      <div class="mb-2">
+        <!-- TODO ADD ENTERPRISE TO TRANSLATE -->
+        <!-- {{ 'AddEmployee.enterprise' | translate }} -->
+        <label class="form-label">Enterprise</label>
+
+        <select
+          formControlName="enterprise"
+          class="form-select form-select-sm"
+          aria-label=".form-select-sm example">
+          <option selected></option>
+          <option
+            *ngFor="let enterprise of enterpriseItems"
+            [value]="enterprise.enterprise_id">
+            {{ enterprise.enterprise_name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Nom</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="name" />
+        <span class="error" *ngIf="name.hasError('required') && name.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Période du temps</label>
+
+        <div class="d-flex justify-content-between">
+          <select
+            class="form-select form-select-sm"
+            aria-label=".form-select-sm example"
+            formControlName="periodTime">
+            <option selected></option>
+            <option *ngFor="let period of periods">{{ period }}</option>
+          </select>
+        </div>
+        <span
+          class="error"
+          *ngIf="periodTime.hasError('required') && periodTime.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Montant</label>
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          formControlName="amount" />
+        <span
+          class="error"
+          *ngIf="amount.hasError('required') && amount.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+      <div class="mb-2">
+        <label class="form-label">A payer avant </label>
+        <input
+          type="date"
+          class="form-control form-control-sm"
+          formControlName="note" />
+        <span class="error" *ngIf="note.hasError('required') && note.touched">
+          {{ 'ErrorMessages.requiredField' | translate }}</span
+        >
+      </div>
+      <div class="d-flex mt-4">
+        <button
+          style="margin-right: 8px"
+          type="button"
+          class="btn btn-default btn-outline-primary pull-right button-save"
+          (click)="d('Cross click')">
+          Annuler
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary button-save"
+          (click)="createExpense()">
+          ENREGISTRER
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-primary add" (click)="open(content)">
+  NOUVELLE DÉPENSE
+</button>

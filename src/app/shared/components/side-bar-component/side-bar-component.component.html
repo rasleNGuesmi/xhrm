@@ -1,0 +1,31 @@
+<nav class="d-flex flex-column" id="sidebar">
+  <div class="display-5 font-weight-bold mt-4">
+    <img src="assets/logo_xhrm2.png" style="width: 140px" />
+  </div>
+  <div class="nav-container-wrapper">
+    <ul class="nav-container">
+      <li
+        [routerLinkActiveOptions]="{ exact: true }"
+        *ngFor="let item of sidebarItems"
+        class="nav-item"
+        [routerLink]="item.url"
+        routerLinkActive="active">
+        <mat-icon>{{ item.iconName }}</mat-icon
+        ><span>{{ 'Sidebar.' + item.title | translate }}</span>
+      </li>
+    </ul>
+
+    <ul class="nav-container">
+      <li
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active"
+        *ngFor="let item of sideBarSettingsItems"
+        class="nav-item"
+        [routerLink]="item.url"
+        (click)="item.title === 'logout' ? logout() : null">
+        <mat-icon>{{ item.iconName }}</mat-icon
+        ><span>{{ 'Sidebar.' + item.title | translate }}</span>
+      </li>
+    </ul>
+  </div>
+</nav>

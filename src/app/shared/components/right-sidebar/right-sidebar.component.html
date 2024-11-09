@@ -1,0 +1,214 @@
+<div class="bloc py-3 px-5 d-lg-block d-none">
+  <h5>{{ today | date : 'EEEE' }}, {{ today | date : 'd MMMM  y' }}</h5>
+  <div class="time">{{ today | date : 'H : mm :ss ' }}</div>
+  <h5>Anniversaires d’aujourd’hui</h5>
+  <div class="birthdays">
+    <div
+      class="d-flex align-items-center justify-content-between p-2"
+      *ngFor="let i of list">
+      <div class="d-flex align-items-start">
+        <img style="width: 21px; height: 21px" src="assets/avatar.png" />
+        <p style="font-size: 14px; padding-right: 15px" class="mb-0">
+          {{ i.first_name }} {{ i.last_name }}, {{ i.age }}
+        </p>
+      </div>
+      <a style="font-size: 14px; color: #0075d6" href="mailto:{{ i.email }}"
+        >Envoyez un message.</a
+      >
+    </div>
+    <h6
+      style="color: #0075d6; margin: 10px; text-align: center"
+      *ngIf="list.length === 0">
+      Pas d'anniversaire aujourd'hui 🎉
+    </h6>
+  </div>
+  <h5>Employés présent</h5>
+
+  <div class="present">
+    <ngb-carousel
+      style="height: 115px"
+      class="px-3"
+      *ngIf="listConnected.length !== 0">
+      <ng-template ngbSlide *ngFor="let items of listConnected | chunkPipe : 3">
+        <div class="row m-2">
+          <div class="col-4 picsum-img-wrapper" *ngFor="let item of items">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              ">
+              <img style="width: 28px; height: 28px" src="assets/avatar.png" />
+
+              <span style="font-size: 14px; text-align: center">
+                {{ item.first_name + ' ' + item.last_name }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+    <h6
+      style="color: #0075d6; padding: 10px; text-align: center"
+      *ngIf="listConnected.length === 0">
+      Aucun employé présent aujourd'hui
+    </h6>
+  </div>
+  <div class="d-flex justify-content-between m-2 align-items-end">
+    <app-circle-progress
+      [backgroundColor]="'#CEDFED'"
+      [outerStrokeColor]="'#0075D6'"
+      [percent]="office + remote"
+      [subtitle]="'De votre employés sont là.'"
+      [radius]="80"
+      [size]="'40'"></app-circle-progress>
+    <div style="display: flex; flex-direction: column">
+      <app-circle-progress
+        class="mb-3"
+        [backgroundColor]="'#FDEBFA'"
+        [outerStrokeColor]="'#CB48B7'"
+        [percent]="office"
+        [subtitle]="'Au bureau'"
+        [radius]="35"
+        [size]="'18px'"
+        [backgroundPadding]="-8"></app-circle-progress>
+      <app-circle-progress
+        [backgroundColor]="'#FFF4E8'"
+        [outerStrokeColor]="'#F58A07'"
+        [percent]="remote"
+        [subtitle]="'Télétravail'"
+        [radius]="35"
+        [size]="'18px'"
+        [backgroundPadding]="-8"></app-circle-progress>
+    </div>
+  </div>
+</div>
+<div class="d-lg-none d-block d-flex justify-content-end">
+  <p (click)="openFullscreen(content)">
+    <svg
+      width="38"
+      height="78"
+      viewBox="0 0 38 78"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.5">
+        <path
+          d="M19.8846 19.8845C29.9673 19.4225 38 11.1017 38 0.904762V76.9048C38 67.0131 30.441 58.8869 20.7844 57.9874L20.7883 57.9062C18.2041 57.9033 15.6366 57.3731 13.2465 56.336C9.92704 54.8957 7.08791 52.5374 5.06302 49.5385C3.03813 46.5397 1.91168 43.025 1.81615 39.4078C1.81178 39.2423 1.80957 39.077 1.80952 38.9118V38.9004C1.80961 38.6 1.81683 38.3001 1.83109 38.0009L1.80952 38.0009L1.80952 37.9793L1.83219 37.9782C1.98484 34.856 2.90611 31.8117 4.52377 29.1197C6.38755 26.0182 9.09824 23.5133 12.337 21.8998C14.6983 20.7234 17.2686 20.0565 19.8825 19.9288L19.8846 19.8845Z"
+          fill="#0073E4" />
+        <path
+          d="M38 76.9048V77.8095H37.9788C37.9929 77.5097 38 77.2081 38 76.9048Z"
+          fill="#0073E4" />
+        <path
+          d="M38 0.904762V0H37.9788C37.9929 0.299822 38 0.601462 38 0.904762Z"
+          fill="#0073E4" />
+        <path
+          d="M0 0.0216276L0.0202037 0.0206911L0.0211626 0H0V0.0216276Z"
+          fill="#0073E4" />
+        <path
+          d="M22 45L16 39L22 33"
+          stroke="white"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </g>
+    </svg>
+  </p>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="py-3 px-4">
+      <div class="d-flex justify-content-between">
+        <h5>{{ today | date : 'EEEE' }}, {{ today | date : 'd MMMM  y' }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="d('Cross click')"></button>
+      </div>
+      <div class="time">{{ today | date : 'H : mm :ss ' }}</div>
+      <h5>Anniversaires d’aujourd’hui</h5>
+      <div class="birthdays">
+        <div
+          class="d-flex align-content-center justify-content-center p-2"
+          *ngFor="let i of list">
+          <img style="width: 21px; height: 21px" src="assets/avatar.png" />
+          <p style="font-size: 14px; padding-right: 15px" class="mb-0">
+            {{ i.first_name }} {{ i.last_name }}, {{ i.age }}
+          </p>
+          <a style="font-size: 14px; color: #0075d6" href="mailto:{{ i.email }}"
+            >Envoyez un message.</a
+          >
+        </div>
+        <h6
+          style="color: #0075d6; margin: 10px; text-align: center"
+          *ngIf="list.length === 0">
+          Pas d'anniversaire aujourd'hui 🎉
+        </h6>
+      </div>
+      <h5>Employés présent</h5>
+
+      <div class="present">
+        <ngb-carousel
+          *ngIf="listConnected.length !== 0"
+          style="height: 160px"
+          class="px-3">
+          <ng-template
+            ngbSlide
+            *ngFor="let items of listConnected | chunkPipe : 6">
+            <div class="row m-2">
+              <div
+                class="col-4 picsum-img-wrapper mb-2"
+                *ngFor="let item of items">
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  ">
+                  <img
+                    style="width: 28px; height: 28px"
+                    src="assets/avatar.png" />
+
+                  <span style="font-size: 14px; text-align: center">
+                    {{ item.first_name + ' ' + item.last_name }}</span
+                  >
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+        <h6
+          style="color: #0075d6; padding: 10px; text-align: center"
+          *ngIf="listConnected.length === 0">
+          Aucun employé présent aujourd'hui
+        </h6>
+      </div>
+      <div class="d-flex justify-content-between m-3 align-items-end">
+        <app-circle-progress
+          [backgroundColor]="'#CEDFED'"
+          [outerStrokeColor]="'#0075D6'"
+          [percent]="office + remote"
+          [subtitle]="'De votre employés sont là.'"
+          [radius]="90"
+          [size]="'40'"></app-circle-progress>
+        <div style="display: flex; flex-direction: column">
+          <app-circle-progress
+            class="mb-3"
+            [backgroundColor]="'#FDEBFA'"
+            [outerStrokeColor]="'#CB48B7'"
+            [percent]="office"
+            [subtitle]="'Au bureau'"
+            [radius]="40"
+            [size]="'18px'"
+            [backgroundPadding]="-8"></app-circle-progress>
+          <app-circle-progress
+            [backgroundColor]="'#FFF4E8'"
+            [outerStrokeColor]="'#F58A07'"
+            [percent]="remote"
+            [subtitle]="'Télétravail'"
+            [radius]="40"
+            [size]="'18px'"
+            [backgroundPadding]="-8"></app-circle-progress>
+        </div>
+      </div></div
+  ></ng-template>
+</div>

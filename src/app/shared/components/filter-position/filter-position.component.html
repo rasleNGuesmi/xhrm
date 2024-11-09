@@ -1,0 +1,8 @@
+<div class="custom-select">
+  <select (change)="onChangeProfession($event)">
+    <option disabled selected value="">Sélectionnez une profession</option>
+    <option *ngFor="let item of professionItems" [value]="item.position_name">
+      {{ item.position_name }}
+    </option>
+  </select>
+</div>

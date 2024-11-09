@@ -1,0 +1,18 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="search-add-center">
+  <app-leave-request
+    [enterprise_leave_days]="enterprise_leave_days"
+    [days_left]="days_left"
+    (leaveRequestCreated)="retrieveAllLeave()"
+    class="btn-add"></app-leave-request>
+  <app-search-bar (onValueChange)="applyFilter($event)"></app-search-bar>
+</div>
+<app-table
+  (sortchange)="handleSort($event)"
+  [dataSource]="dataSource"
+  [headArray]="columns"
+  [ExpandedColumns]="displayedColumns"
+  [paginatorData]="paginatorData"
+  (pagechange)="onPaginateChange($event)"></app-table>

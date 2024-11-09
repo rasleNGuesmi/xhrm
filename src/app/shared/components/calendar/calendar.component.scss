@@ -1,0 +1,86 @@
+p {
+  color: #525252;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+mat-icon {
+  font-size: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+}
+.btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+  height: 35px;
+}
+
+::ng-deep .cal-month-view .cal-days .cal-cell-row {
+  height: 4em !important;
+}
+
+::ng-deep .cal-month-view .cal-day-number {
+  font-size: 1em;
+  opacity: 0.8;
+}
+::ng-deep .cal-month-view .cal-day-cell.cal-today .cal-day-number {
+  font-size: 1em;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+::ng-deep .cal-month-view .cal-day-cell {
+  min-height: 0 !important;
+}
+::ng-deep .cal-month-view .cal-cell-top {
+  min-height: 0;
+}
+
+::ng-deep .cal-month-view .cal-day-badge {
+  background-color: transparent;
+  color: transparent;
+}
+::ng-deep .cal-week-view .cal-time-events {
+  max-height: 60vh;
+}
+::ng-deep .cal-month-view .cal-day-cell.cal-in-month.cal-has-events {
+  cursor: unset;
+}
+::ng-deep .mat-tab-body-content {
+  overflow: unset !important;
+}
+
+@media (max-width: 768px) {
+  .date {
+    padding: 20px;
+  }
+  p {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+}
+.office {
+  background-color: #cb48b7;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+}
+.remote {
+  background-color: #f58a07;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+}
+.absence {
+  background-color: #d21a1a;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+}

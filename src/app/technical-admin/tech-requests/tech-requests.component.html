@@ -1,0 +1,19 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="container filter-position mb-2">
+  <app-tech-purchase-request
+    class="mx-2"
+    (orderRequestCreated)="retrieveAllRequests()">
+  </app-tech-purchase-request>
+  <app-search-bar
+    class="filter-center mb-2"
+    (onValueChange)="applyFilter($event)"></app-search-bar>
+</div>
+<app-table
+  (sortchange)="handleSort($event)"
+  [dataSource]="dataSource"
+  [headArray]="columns"
+  [ExpandedColumns]="displayedColumns"
+  [paginatorData]="paginatorData"
+  (pagechange)="onPaginateChange($event)"></app-table>

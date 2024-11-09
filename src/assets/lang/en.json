@@ -1,0 +1,62 @@
+{
+  "SignUpPage": {
+    "generalInformation": "General Information",
+    "enterprise": "Enterprise",
+    "account": "Account",
+    "responsibleFirstName": "Responsible First Name",
+    "responsibleLastName": "Responsible Last Name",
+    "companyName": "Company Name",
+    "employeesNumber": "Employees Number",
+    "companyActivity": "Company Activity",
+    "phoneNumber": "phoneNumber",
+    "address": "Address",
+    "username": "Username",
+    "email": "email",
+    "password": "password",
+    "continue": "continue",
+    "employeesNumberList": {
+      "1-14Employees": "From 1-14 employees",
+      "15-49Employees": "From 15-49 employees",
+      "50-99Employees": "From 50-99 employees",
+      "100-249Employees": "From 100-249 employees",
+      "250Employees": "more than 250 employees "
+    },
+    "addressList": {
+      "Tunisia": "Tunisia",
+      "France": "France"
+    }
+  },
+  "translateLanguage": "French",
+  "translateParagraph": "Already have an account ?",
+  "translateButton": "Login",
+
+  "ErrorMessages": {
+    "minLength3": "Enter at least 3 characters.",
+    "minLength8": "Enter at least 8 characters.",
+    "requiredField": "Required field.",
+    "emailInvalid": "this is not a valid email format.",
+    "passwordInvalid": "Include lowercase, uppercase and numbers.",
+    "passwordMinLength": "Password must be at least 12 characters,"
+  },
+
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "employees": "Employees",
+    "presence": "Presence",
+    "authorisation": "Authorization",
+    "expenses": "Expenses",
+    "settings": "Settings",
+    "logout": "Logout",
+    "profile-employee": "Profile Employee",
+    "Error": "Page not found"
+  },
+  "AddEmployee": {
+    "firstName": "FirstName",
+    "lastName": "LastName",
+    "email": " Email",
+    "password": "password",
+    "department": "Department",
+    "team": "Team",
+    "role": "Role"
+  }
+}

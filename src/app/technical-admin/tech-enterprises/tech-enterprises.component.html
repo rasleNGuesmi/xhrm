@@ -1,0 +1,28 @@
+<ng-http-loader
+  backgroundColor="#4b244a"
+  spinner="sk-chasing-dots"></ng-http-loader>
+<div class="page-container">
+  <div class="btn-center mb-2">
+    <app-enterprise-form
+      (enterpriseCreated)="retrieveAllEnterprises()"
+      (reload)="retrieveAllEnterprises()"
+      class="filter-center"></app-enterprise-form>
+    <div class="filter-position mb-2">
+      <app-search-bar
+        class="pe-3"
+        (onValueChange)="applyFilter($event)"></app-search-bar>
+      <!-- TODO FILTER -->
+      <!-- <app-filter> -->
+        <!-- Filters -->
+      <!-- </app-filter> -->
+    </div>
+  </div>
+
+  <app-table
+    (sortchange)="handleSort($event)"
+    [dataSource]="dataSource"
+    [headArray]="columns"
+    [ExpandedColumns]="displayedColumns"
+    [paginatorData]="paginatorData"
+    (pagechange)="onPaginateChange($event)"></app-table>
+</div>
